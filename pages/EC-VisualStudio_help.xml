@@ -1,0 +1,228 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Windows (vers 25 March 2009), see www.w3.org" />
+  <meta content="text/html; charset=us-ascii" http-equiv=
+  "content-type" />
+
+  <title>ElectricFlow Plugin for Visual Studio</title>
+  <link rel="stylesheet" href=
+  "../../plugins/@PLUGIN_KEY@/pluginhelp.css" type="text/css"
+  media="screen" />
+</head>
+
+<body>
+  <div class="help">
+    <h1>Visual Studio</h1>
+
+    <p>Plugin Version @PLUGIN_VERSION@</p>
+    <hr style=
+    "margin-left: -10px; margin-top: 10px; height: 1px; width: 100%; color: #5981BD;"
+    noshade="noshade" />
+
+	<p>July 1, 2015</p>
+	
+    <p>Microsoft Visual Studio is an integrated development
+    environment from Microsoft.<br />
+    Visual Studio supports different programming languages,
+    Built-in languages include C/C++, VB.NET, C# , and F#. Support
+    for other languages such as M, Python, and Ruby among others is
+    available via language services installed separately.</p>
+
+    <h2>Visual Studio Links</h2>
+
+    <p>More information can be found at <a href=
+    "http://www.microsoft.com/visualstudio/en-us">this
+    website</a>.</p>
+
+    <h2>ElectricFlow Integration to Visual Studio</h2>
+
+    <p>This plugin provides access to .NET framework features,
+    allowing the user to execute and emulate many Visual Studio IDE
+    options, such as compiling, building and deploying projects and
+    solutions.<br />
+    The plugin calls the Visual Studio tool's "devenv.exe" command
+    line and passes the user-provided parameters.</p>
+
+    <h2>Integrated Version</h2>
+
+    <p>This plugin was developed and tested against version devenv
+    10.0</p>
+
+    <h1>Plugin Procedures</h1>
+
+    <p>IMPORTANT: For all parameter descriptions below, required
+    parameters are shown in <span class='required'>bold
+    italics</span>.</p>
+
+    <div id="VSBuild"><a name='VSBuild' id="VSBuild"></a>
+
+    <h3>VSBuild</h3>
+
+    <p>This procedure creates and executes a command line from the
+    user-provided parameters, and allows you to Clean, Build,
+    Rebuild and Deploy .net projects and solutions.</p>
+
+    <table class="grid">
+      <thead>
+        <tr>
+          <th>Parameter</th>
+
+          <th>Description</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Devenv Executable</td>
+
+          <td>absolute path to the "devenv.exe" executable. (empty
+          uses devenv from PATH).</td>
+        </tr>
+
+        <tr>
+          <td class='required'>Solution File</td>
+
+          <td>Absolute path to a Visual Studio's Solution file
+          (.sln). (Required)</td>
+        </tr>
+
+        <tr>
+          <td class='required'>Action</td>
+
+          <td>Builds, Rebuild, Clean or Deploy the solution.
+          (Required)</td>
+        </tr>
+
+        <tr>
+          <td class='required'>Solution Configuration</td>
+
+          <td>The solution configuration to build. For example
+          Debug, Release, Debug|Win32 or Release|Win32.
+          (Required)</td>
+        </tr>
+
+        <tr>
+          <td>Project File</td>
+
+          <td>Absolute path to a Visual Studio's project file.
+          (This is the command-line '/project' option).</td>
+        </tr>
+
+        <tr>
+          <td>Project Configuration</td>
+
+          <td>The project configuration to build. For example
+          Debug, Release, Debug|Win32 or Release|Win32. (This is
+          the command-line '/projectconfig' option).</td>
+        </tr>
+
+        <tr>
+          <td>Use Environment</td>
+
+          <td>Use the environment variables to define PATH,
+          INCLUDE, LIB and LIBPATH.</td>
+        </tr>
+
+        <tr>
+          <td>Working Directory</td>
+
+          <td>The directory to change to before invoking Visual
+          Studio.</td>
+        </tr>
+      </tbody>
+    </table><img src=
+    "../../plugins/@PLUGIN_KEY@/images/VisualStudio-5.png" alt=
+    "Form" /></div>
+
+    <h1>Examples and Use Cases</h1>
+
+    <p>For this example we are going to create a simple console
+    application.</p>
+
+    <ol>
+      <li>Let's call our application "Example".<br />
+      <img src=
+      "../../plugins/@PLUGIN_KEY@/images/VisualStudio-1.png" alt=
+      "Solution" /></li>
+
+      <li>Now we are going to write some code in the program.cs
+      file.<br />
+      <img src=
+      "../../plugins/@PLUGIN_KEY@/images/VisualStudio-2.png" alt=
+      "Code" /></li>
+
+      <li>Then run the application to see results:<br />
+      <img src=
+      "../../plugins/@PLUGIN_KEY@/images/VisualStudio-3.png" alt=
+      "Results" /></li>
+
+      <li>Now in order to build the application from commander we
+      will need to create a VSBuild step.</li>
+
+      <li>Fill the parameter form:<br />
+      <img src=
+      "../../plugins/@PLUGIN_KEY@/images/VisualStudio-5.png" alt=
+      "Form" /></li>
+
+      <li>Run the procedure and see the results in the log
+      file.<br />
+      <img src=
+      "../../plugins/@PLUGIN_KEY@/images/VisualStudio-6.png" alt=
+      "Log1" /></li>
+
+      <li>After cleaning the Solution we only need to change the
+      action parameter to "Build" in order to build our first app
+      from ElectricFlow.<br />
+      <img src=
+      "../../plugins/@PLUGIN_KEY@/images/VisualStudio-7.png" alt=
+      "Log2" /></li>
+
+      <li>In case we want to rebuild the application we just need
+      to change the action parameter to "Rebuild".<br />
+      <img src=
+      "../../plugins/@PLUGIN_KEY@/images/VisualStudio-8.png" alt=
+      "Log2" /></li>
+    </ol>
+
+    <h1>Release Notes</h1>
+    <!-- Specific descriptions of additional or changed functionality,
+    new parameters, etc. The plugin version header of this section should
+    include the speciic build number if possible. Repeat this section for
+    each version.
+    -->
+    <h2>@PLUGIN_KEY@ 2.0.3</h2>
+
+	<ul>
+		<li>Renamed ElectricCommander to ElectricFlow.</li>
+	</ul>
+
+	<h2>@PLUGIN_KEY@ 2.0.2</h2>
+
+	<ul>
+		<li>Procedure name(s) were changed in the step picker section.</li>
+	</ul>
+	
+    <h2>@PLUGIN_KEY@ 2.0.1</h2>
+	
+    <ul>
+      <li>Change Help page style.</li>
+	</ul>
+		
+    <h2>@PLUGIN_KEY@ 2.0.0</h2>
+
+    <ul>
+      <li>XML Parameter panel</li>
+
+      <li>Help page update</li>
+
+      <li>Code improvements</li>
+
+      <li>Support for Visual Studio 2010</li>
+    </ul>
+  </div>
+</body>
+</html>

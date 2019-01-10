@@ -1,0 +1,27 @@
+# -*-Perl-*-
+
+# visualstudio.ntest -
+#
+# Exercise basic components of EC-VisualStudio plugin
+#
+# Copyright (c) 2005-2010 Electric Cloud, Inc.
+# All rights reserved
+
+use strict;
+use warnings;
+use ECTest;
+
+require "$::gTestFileDir/visualstudio-common.ntest";
+
+# read in setup and tests that are common to all EC-VisualStudio plugin archives
+# system tests
+
+
+ntest "check-VSBuild-present", {}, sub {
+    # Check that the plugin contains required components
+    my $xpath = $::N->getSteps("$::gPlugin_name","VSBuild");
+    assertOK($xpath,"get steps");
+    assertEq("createVisualStudioCommandLine", $xpath->findvalue("//step[1]/stepName"), "step 1: createVisualStudioCommandLine");
+    assertEq("runVisualStudioCommandLine", $xpath->findvalue("//step[2]/stepName"), "step 2: runVisualStudioCommandLine");
+
+};

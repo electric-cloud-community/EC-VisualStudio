@@ -1,0 +1,78 @@
+<editor>
+    <help>/commander/pages/@PLUGIN_NAME@/@PLUGIN_KEY@_help?s=Administration&amp;ss=Plugins#VSBuild</help>
+    <formElement>
+        <type>entry</type>
+        <label>Devenv Executable:</label>
+        <value>devenv</value>
+        <property>devenvExecutable</property>
+        <documentation>Absolute path to the <b>devenv.exe</b> executable. (empty uses devenv from PATH).</documentation>
+        <required>0</required>
+    </formElement>
+    <formElement>
+        <type>entry</type>
+        <label>Solution File:</label>
+        <property>solutionFile</property>
+        <documentation>Absolute path to a Visual Studio's Solution file (.sln)</documentation>
+        <required>1</required>
+    </formElement>
+    <formElement>
+        <type>select</type>
+        <label>Action:</label>
+        <value>/Build</value>
+        <property>action</property>
+        <documentation>Builds, Rebuild, Clean or Deploy the solution.</documentation>
+        <required>1</required>
+        <option>
+            <name>Build</name>
+            <value>/Build</value>
+        </option>
+        <option>
+            <name>Rebuild</name>
+            <value>/Rebuild</value>
+        </option>
+        <option>
+            <name>Clean</name>
+            <value>/Clean</value>
+        </option>
+        <option>
+            <name>Deploy</name>
+            <value>/Deploy</value>
+        </option>
+    </formElement>
+    <formElement>
+        <type>entry</type>
+        <label>Solution Configuration:</label>
+        <property>solutionConfiguration</property>
+        <documentation>The solution configuration to build. For example Debug, Release, Debug|Win32 or Release|Win32.</documentation>
+        <required>1</required>
+    </formElement>
+    <formElement>
+        <type>entry</type>
+        <label>Project File:</label>
+        <property>projectFile</property>
+        <documentation>Absolute path to a Visual Studio's project file.</documentation>
+        <required>0</required>
+    </formElement>
+    <formElement>
+        <type>entry</type>
+        <label>Project Configuration:</label>
+        <property>projectConfiguration</property>
+        <documentation>The project configuration to build. For example Debug, Release, Debug|Win32 or Release|Win32.</documentation>
+        <required>0</required>
+    </formElement>
+    <formElement>
+        <type>checkbox</type>
+        <label>Use Environment:</label>
+        <property>useenv</property>
+        <checkedValue>1</checkedValue>
+        <uncheckedValue>0</uncheckedValue>
+        <documentation>Use the environment variables to define PATH, INCLUDE, LIB and LIBPATH.</documentation>
+    </formElement>
+    <formElement>
+        <type>entry</type>
+        <label>Working Directory:</label>
+        <property>workingDir</property>
+        <documentation>The directory to change to before invoking Visual Studio.</documentation>
+        <required>0</required>
+    </formElement>
+</editor>
